@@ -41,7 +41,7 @@ Seneca()
 
 Seneca()
  .use(getUserName)
- .listen(8270)
+ .listen({port:8270, host : '0.0.0.0'})
 
 
 // Load order is important, messages can be routed

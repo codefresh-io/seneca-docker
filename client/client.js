@@ -7,8 +7,12 @@ function handler (err, reply) {
   console.log(err, reply)
 }
 debugger;
+var host = !(process.env.HOST) ? "127.0.0.1" : process.env.HOST;
+
+console.log(`host : ${host}`);
+
 
 Seneca()
   //.use(local)
-  .client(8270)//{port: 8270, pin: 'user:name', param:'oleg'})
+  .client({port: 8270, host:host})
   .act({role:"user", cmd:'name', param:"oleg"}, handler);
